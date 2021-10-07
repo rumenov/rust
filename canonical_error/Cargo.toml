@@ -1,0 +1,9 @@
+[package]
+name = "canonical-error"
+version = "0.1.0"
+edition = "2018"
+repository = "https://github.com/rumenov/rust.git"
+keywords = ["error", "canonical", "absl", "grpc"]
+
+[dependencies]
+http = "0.2.5"
