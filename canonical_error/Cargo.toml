@@ -1,10 +1,12 @@
 [package]
 name = "canonical-error"
+description = "Rust implementation of Abseil Canonical Errors."
 version = "0.1.0"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/rumenov/rust.git"
 keywords = ["error", "canonical", "absl", "grpc"]
+readme = "README.md"
 
 [dependencies]
 http = "0.2.5"
