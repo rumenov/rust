@@ -1,6 +1,7 @@
 // The following list is directly taken from https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto
 
 use http::StatusCode;
+use std::error::Error;
 use std::fmt;
 
 // Sometimes multiple error codes may apply.  Services should return
@@ -219,11 +220,13 @@ impl From<CanonicalErrorCode> for StatusCode {
     }
 }
 
-impl std::error::Error for CanonicalError {
-    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
-        None
+impl From<Box<(dyn Error + Send + Sync + 'static)>> for CanonicalError {
+    fn from(boxed_error: Box<(dyn Error + Send + Sync + 'static)>) -> Self {
+        *boxed_error.downcast::<CanonicalError>().unwrap()
     }
 }
+
+impl Error for CanonicalError {}
 
 impl fmt::Display for CanonicalError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {

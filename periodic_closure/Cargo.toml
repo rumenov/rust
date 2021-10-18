@@ -1,0 +1,11 @@
+[package]
+name = "periodic-closure"
+description = "Running a closure at a fixed period."
+version = "0.1.0"
+edition = "2018"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/rumenov/rust.git"
+keywords = ["periodic", "closure", "thread"]
+
+[dependencies]
+crossbeam-channel = "0.5.1"
